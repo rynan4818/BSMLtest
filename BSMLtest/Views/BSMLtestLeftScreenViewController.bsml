@@ -1,7 +1,52 @@
-﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
-	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
-	>
-	<horizontal horizontal-fit="PreferredSize" >
-		<text text='Left' />
-	</horizontal>
+﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
+  <settings-container>
+    <horizontal min-width='80'>
+      <horizontal pref-width='0'>
+        <checkbox-setting text="Disable Submission"></checkbox-setting>
+      </horizontal>
+      <horizontal pref-width='0'>
+        <dropdown-list-setting text='' id='targetDevice1-dropdown' choices='targetDevice1choices'></dropdown-list-setting>
+      </horizontal>
+    </horizontal>
+    <horizontal min-width='80' min-height='30'>
+      <text text='1111111111' id='TrackedDevicePosition' font-align='TopLeft' font-size='3' size-delta-y='30'></text>
+    </horizontal>
+    <horizontal pad-bottom='10'>
+      <text id='position' align='Center' font-size='3' size-delta-x='200' size-delta-y='8'></text>
+      <button text='Load Position' on-click='LoadPosition'></button>
+    </horizontal>
+    <increment-setting text="Screen X Position" bind-value="true" increment="0.1"></increment-setting>
+    <increment-setting text="Screen Y Position" bind-value="true" increment="0.1"></increment-setting>
+    <increment-setting text="Screen Z Position" bind-value="true" increment="1"></increment-setting>
+    <increment-setting text="Screen X Rotation" bind-value="true" increment="10" min="0" max="360"></increment-setting>
+    <increment-setting text="Screen Y Rotation" bind-value="true" increment="10" min="0" max="360"></increment-setting>
+    <increment-setting text="Screen Z Rotation" bind-value="true" increment="10" min="0" max="360"></increment-setting>
+    <horizontal pad-bottom='2'>
+      <button text='Reset Center'></button>
+      <button text='Reset Rotation'></button>
+      <button text='Default Position'></button>
+    </horizontal>
+    <checkbox-setting text="HMD Only View"></checkbox-setting>
+    <checkbox-setting text="Position Value View"></checkbox-setting>
+    <checkbox-setting text="X Center Signal"></checkbox-setting>
+    <increment-setting text="Screen Size" increment="1" min="1"></increment-setting>
+    <increment-setting text="Front Limit Line [m]" increment="0.1" min="0.1" max="1.0"></increment-setting>
+    <increment-setting text="Back Limit Line [m]" increment="0.1" min="0.1" max="1.0"></increment-setting>
+    <increment-setting text="Right Limit Line [m]" increment="0.1" min="0.1" max="1.5"></increment-setting>
+    <increment-setting text="Left Limit Line [m]" increment="0.1" min="0.1" max="1.5"></increment-setting>
+    <increment-setting text="Yellow Warning" increment="0.1" min="0.1" max="1.0"></increment-setting>
+    <increment-setting text="Red Warning" increment="0.1" min="0.1" max="1.0"></increment-setting>
+    <increment-setting text="X Center Limit [m]" increment="0.001" min="0.001" max="1.5"></increment-setting>
+    <increment-setting text="Stage Line Width (Screen x)" increment="0.01" min="0.01" max="1.0"></increment-setting>
+    <increment-setting text="Player Mark Size (Screen x)" increment="0.01" min="0.05" max="1.0"></increment-setting>
+    <checkbox-setting text="Custom Target Device"></checkbox-setting>
+    <dropdown-list-setting text='Custom Target Device 2' id='targetDevice2-dropdown' choices='targetDevice1choices'></dropdown-list-setting>
+    <increment-setting text="Target Device X Offset [m]" increment="0.01" min="-1.0" max="1.0"></increment-setting>
+    <increment-setting text="Target Device Z Offset [m]" increment="0.01" min="-1.0" max="1.0"></increment-setting>
+    <horizontal pad-bottom='2'>
+      <button text='Tracked Device Position Get'></button>
+      <button text='Output Log'></button>
+    </horizontal>
+    <text id='TrackedDevicePosition' align='Center' font-size='3' size-delta-x='500' size-delta-y='100'></text>
+  </settings-container>
 </bg>

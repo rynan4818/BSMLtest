@@ -1,14 +1,6 @@
 ﻿using BSMLtest.Installers;
 using IPA;
-using IPA.Config;
-using IPA.Config.Stores;
 using SiraUtil.Zenject;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using IPALogger = IPA.Logging.Logger;
 
 namespace BSMLtest
@@ -25,16 +17,11 @@ namespace BSMLtest
         /// [Init]コンストラクタを使用するメソッドや、InitWithConfigなどの通常のメソッドの前に呼び出されるメソッド
         /// [Init]は1つのコンストラクタにのみ使用してください
         /// </summary>
-        public void Init(IPALogger logger, Config conf, Zenjector zenjector)
+        public void Init(IPALogger logger, Zenjector zenjector)
         {
             Instance = this;
             Log = logger;
             Log.Info("BSMLtest initialized.");
-
-            //BSIPAのConfigを使用する場合はコメントを外します
-            //Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
-            //Log.Debug("Config loaded");
-
             zenjector.Install<BSMLtestMenuInstaller>(Location.Menu);
         }
 
@@ -42,14 +29,12 @@ namespace BSMLtest
         public void OnApplicationStart()
         {
             Log.Debug("OnApplicationStart");
-
         }
 
         [OnExit]
         public void OnApplicationQuit()
         {
             Log.Debug("OnApplicationQuit");
-
         }
     }
 }
